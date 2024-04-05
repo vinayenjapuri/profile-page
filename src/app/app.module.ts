@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {FlexLayoutModule} from "@angular/flex-layout";
+import {HeaderComponent} from "./header/header.component";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -13,7 +15,9 @@ import {FlexLayoutModule} from "@angular/flex-layout";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    HeaderComponent,
+    HttpClientModule
   ],
   providers: [
     provideAnimationsAsync()

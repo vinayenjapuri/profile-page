@@ -1,1 +1,37 @@
-<p>content works!</p>
+<div class="w-100" [style.height.px]="210">
+  <img class="w-100" src="assets/logo.jpeg" height="300" alt="Resume"/>
+</div>
+<div class="mc-padding-left-r0-25 mc-padding-right-r0-25">
+  <div class="border-radius-20 mc-padding-left-r0-25">
+    <div (click)="openProfile()" mat-card-avatar class="user-image">
+    </div>
+  </div>
+  <div class="mc-margin-top-r3-75 mc-padding-left-r4-75">
+    <div class="mc-padding-left-r3-75 font-20 color-fefe mc-margin-bottom-r1-25">Merugu Vinay Kumar</div>
+    <div class="mc-padding-left-r3-75" fxLayout="row wrap" fxLayout.xs="column wrap" fxLayoutAlign="start start" fxLayoutGap="10px">
+      @for (item of contactList; track item) {
+        <button mat-button class="background-f1f1f1 color-1e1e1e contact-card" fxLayout="row" fxLayoutAlign="center start">
+          @if (item.icon) {
+            <mat-icon class="icon mc-margin-right-r0-25">{{item.icon}}</mat-icon>
+          }
+          <span [ngClass.xs]="'font-11'" [ngClass]="{'active': item.name==='Email'}">{{ item.text }}</span>
+        </button>
+      }
+    </div>
+  </div>
+  <div class="mc-margin-top-r2-75 mc-padding-left-r0-25" fxLayout="column wrap" fxLayoutAlign="start start" fxLayoutGap="10px">
+    @for (item of contents; track item) {
+      <mat-card class="mc-padding-r1 pp-card w-100 visibility-frames">
+        <mat-card-title>{{ item }}</mat-card-title>
+        <mat-card-subtitle>
+          He is a web enthusiast, a front-end developer. That's what he likes to do the most of time.
+        </mat-card-subtitle>
+      </mat-card>
+    }
+  </div>
+</div>
+<router-outlet></router-outlet>
+
+<ng-template #profilePhotoRef>
+  <div class="profile-photo"></div>
+</ng-template>

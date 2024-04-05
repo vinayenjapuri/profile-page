@@ -1,0 +1,87 @@
+.user-image {
+  background-image: url('/assets/20240213_171434.jpg');
+  background-size: cover;
+  height: 120px !important;
+  width: 120px !important;
+  border: 1px double white;
+  border-radius: 50%;
+  flex-shrink: 0;
+  position: absolute;
+  z-index: 99;
+  margin-bottom: 16px;
+  object-fit: cover;
+  margin-top: -2rem !important;
+  animation-name: user-anime;
+  animation-duration: 3s;
+}
+
+@keyframes user-anime {
+  0% {
+    top: 100px;
+  }
+  50% {
+    margin-top: 160px;
+  }
+  75% {
+    top: 270px;
+  }
+  100% {
+    margin-top: 0;
+  }
+}
+
+.contact-card {
+  padding: 8px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.profile-photo {
+  background-image: url('/assets/20240213_171434.jpg');
+  background-repeat: no-repeat;
+  background-clip: content-box;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+::ng-deep {
+  .profile-dialog .mat-mdc-dialog-surface {
+    border-radius: 20px !important;
+  }
+  .mat-mdc-card {
+    box-shadow: none !important;
+    border: 0.5px #303134 !important;
+    border-style: ridge;
+  }
+
+  .icon {
+    width: 20px !important;
+    height: 20px !important;
+    font-size: 20px !important;
+  }
+}
+
+.visibility-frames {
+  animation-name: card-details;
+  animation-duration: 6s;
+}
+
+@keyframes card-details {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 0.75;
+  }
+  75% {
+    opacity: 0.95;
+  }
+  100% {
+    opacity: 1;
+  }
+}
