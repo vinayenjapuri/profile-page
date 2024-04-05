@@ -1,0 +1,127 @@
+@mixin margin($rem, $marg, $t) {
+  @if ($t== "left-r") {
+    margin-left: $marg + $rem + rem + " !important";
+  }
+  @if ($t== "right-r") {
+    margin-right: $marg + $rem + rem + " !important";
+  }
+  @if ($t== "top-r") {
+    margin-top: $marg + $rem + rem + " !important";
+  }
+  @if ($t== "bottom-r") {
+    margin-bottom: $marg + $rem + rem + " !important";
+  }
+  @if($t=="none") {
+    margin: $marg + $rem + rem !important;
+  }
+}
+
+@mixin padding($rem, $pad, $t) {
+  @if ($t== "left-r") {
+    padding-left: $pad + $rem + rem + " !important";
+  }
+  @if ($t== "right-r") {
+    padding-right: $pad + $rem + rem + " !important";
+  }
+  @if ($t== "top-r") {
+    padding-top: $pad + $rem + rem + " !important";
+  }
+  @if ($t== "bottom-r") {
+    padding-bottom: $pad + $rem + rem + " !important";
+  }
+  @if ($t=="none") {
+    padding: $pad + $rem + rem !important;
+  }
+}
+
+@mixin font($size) {
+  font-size: $size + px !important;
+}
+
+$step: 25;
+$max: 75;
+
+@each $t in "left-r", "right-r", "top-r", "bottom-r" {
+  @for $i from 0 through 4 {
+    @for $j from 1 through calc($max/$step) {
+      $w: ($j * $step);
+      @if ($i==0) {
+        .mc-margin-#{$t}#{$i}-#{$w%100} {
+          @include margin(calc($w/100), 0, $t);
+        }
+        .mc-padding-#{$t}#{$i}-#{$w%100} {
+          @include padding(calc($w/100), 0, $t);
+        }
+      } @else {
+        .mc-margin-#{$t}#{$i}-#{$w%100} {
+          @include margin(calc($w/100), $i, $t);
+        }
+        .mc-padding-#{$t}#{$i}-#{$w%100} {
+          @include padding(calc($w/100), $i, $t);
+        }
+      }
+    }
+  }
+}
+
+@mixin width($num) {
+  width: #{$num}#{"%"} + " !important";
+}
+
+@mixin color($color) {
+  color: #{"#"}#{$color} !important;
+}
+
+@mixin background($background) {
+  background: #{"#"}#{$background} !important;
+}
+
+@for $i from 1 through 4 {
+  .mc-margin-r#{$i} {
+    @include margin($i, 0, "none");
+  }
+  .mc-padding-r#{$i} {
+    @include padding($i, 0, "none");
+  }
+}
+
+@each $color in "fefe", "303134", "f0f4f9", "fefefe", "1e7fddb", "1e1e", "1e1e1e", "000", "fff", "626262", "f1f1f1", "111111" {
+  .color-#{$color} {
+    @include color($color);
+  }
+  .background-#{$color} {
+    @include background($color);
+  }
+}
+
+@for $u from 8 through 32 {
+  .font-#{$u} {
+    @include font($u);
+  }
+}
+
+@for $width from 1 through 100 {
+  .w-#{$width} {
+    @include width($width);
+  }
+}
+
+.underline-text {
+  text-decoration: underline !important;
+}
+
+.active {
+  //color: #1e7ddb !important;
+  @extend .underline-text;
+}
+.underline-button {
+  cursor: pointer !important;
+}
+.underline-button:hover {
+  text-decoration: underline !important;
+  @include color("1e7fddb");
+}
+
+.border-radius-20 {
+  border-radius: 20px !important;
+}
