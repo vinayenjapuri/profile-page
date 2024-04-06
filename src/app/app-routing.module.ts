@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import {ContentComponent} from "./content/content.component";
 
 const routes: Routes = [
   {
@@ -8,8 +9,8 @@ const routes: Routes = [
     pathMatch: "full"
   },
   {
-    path: "content",
-    loadChildren: () => import("./content/content.module").then((m) => m.ContentModule)
+    path: 'content',
+    component: ContentComponent
   }
 ];
 
