@@ -1,1 +1,53 @@
-<p>poc works!</p>
+<div fxLayout="row wrap" fxLayoutAlign="center center">
+  @for (item of pocs; track item) {
+    <mat-card (click)="openItem(item)" class="poc-card mc-padding-r1 border-radius-20 mc-margin-bottom-r0-75 mc-margin-right-r0-75">
+      <mat-card-title fxLayout="row" class="mc-margin-bottom-r0-50" fxLayoutAlign="space-between center">
+        <span class="font-16">{{item.name}}</span>
+        <button class="font-9 border-radius-20" mat-stroked-button [class]="item.status==='Complete'? 'background-1e7ddb color-1e1e1e': 'background-303134 color-fefe'"> {{item.status}}</button>
+      </mat-card-title>
+      <mat-card-content class="poc-content">
+        <p>{{item.description}}</p>
+      </mat-card-content>
+      <mat-card-actions fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10">
+        @if (item?.type == 'Organisation') {
+          <button mat-stroked-button [disabled]="true">{{item?.type}}</button>
+        } @else if (!item?.git && !item?.website) {
+          <b class="font-11">Currently Unavailable.</b>
+        } @else {
+          <button mat-stroked-button [matTooltip]="'Goto Source Code'">Source</button>
+          <button mat-stroked-button [matTooltip]="'Visit'">Website</button>
+        }
+      </mat-card-actions>
+    </mat-card>
+  }
+</div>
+
+<ng-template #pocSheetItemRef>
+  <div class="mc-padding-r1" fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="10">
+    <span class="font-20"><b>{{currentItem?.name}}</b></span>
+    <span class="font-12" fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="5">
+      <span>
+        <b>Description</b>:
+        {{currentItem?.description}}
+      </span>
+      <span>
+        <b>Role</b>:
+        {{currentItem?.role}}
+      </span>
+      <span>
+        <b>Tools Used</b>:
+        {{currentItem?.tools}}
+      </span>
+      <span>
+        <b>Skills</b>
+        {{currentItem?.skills}}
+      </span>
+      <b>Responsibilities</b>
+      <ul>
+        @for (item of currentItem?.responsibilities; track item) {
+          <li>{{item}}</li>
+        }
+      </ul>
+    </span>
+  </div>
+</ng-template>

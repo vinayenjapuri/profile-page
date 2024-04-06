@@ -1,6 +1,17 @@
 <div class="w-100" [style.height.px]="210">
   <img class="w-100" src="assets/logo.jpeg" height="300" alt="Resume"/>
 </div>
+<div>
+  <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="10px" class="background-1e7ddb quick-card color-fefe mc-padding-r1 border-radius-20" style="width: 250px; height: 130px">
+    @if (!hideBlankSpaces) {
+      <div style="min-width: 120px; background: black"></div>
+    }
+    <div fxLayout="column" class="quick-card-content color-fefe" fxLayoutAlign="start start" fxLayoutGap="10px">
+      <span style="width: max-content; font-weight: 550">Angular Developer</span>
+      <span class="quick-desc">Lives in the world of web. Enjoys each complexity in life that brings huddles.</span>
+    </div>
+  </div>
+</div>
 <div class="mc-padding-left-r0-25 mc-padding-right-r0-25">
   <div class="border-radius-20 mc-padding-left-r0-25">
     <div (click)="openProfile()" mat-card-avatar class="user-image">
@@ -14,23 +25,39 @@
           @if (item.icon) {
             <mat-icon class="icon mc-margin-right-r0-25">{{item.icon}}</mat-icon>
           }
-          <span [ngClass.xs]="'font-11'" [ngClass]="{'active': item.name==='Email'}">{{ item.text }}</span>
+          <span>{{ item.text }}</span>
         </button>
       }
     </div>
   </div>
-  <div class="mc-margin-top-r2-75 mc-padding-left-r0-25" fxLayout="column wrap" fxLayoutAlign="start start" fxLayoutGap="10px">
+  <div class="mc-margin-top-r2-75 mc-padding-left-r0-25 mc-padding-right-r0-25" fxLayout="column wrap" fxLayoutAlign="start start" fxLayoutGap="10px">
     @for (item of contents; track item) {
-      <mat-card class="mc-padding-r1 pp-card w-100 visibility-frames">
-        <mat-card-title>{{ item }}</mat-card-title>
-        <mat-card-subtitle>
-          He is a web enthusiast, a front-end developer. That's what he likes to do the most of time.
-        </mat-card-subtitle>
-      </mat-card>
+      <div fxLayoutAlign="center center" fxLayout="column" class="mc-padding-r1 pp-card w-100 visibility-frames">
+        <div class="font-24 mc-margin-bottom-r0-50">{{ item }}</div>
+        <div class="subtitle">
+          @if (item == 'About') {
+            <span class="font-16 about-content">I would like to introduce myself as an <b>Angular Developer</b> and a web enthusiast, with <b>3.7</b> years of experience.<br>I pleasure to collaborate with the people who share similar interests, knowledge sharing, and provides analytical reasoning to improve skills. <b>Angular Architecture</b>, <b>NgRx State Management</b>, <b>Do's and Don't in Angular</b>, <b>Computer Networks</b>, <b>Space and Time</b> are my favorite topics. Without further ado, here are the <a>Skills</a></span>
+          }
+          @if (item === 'Work Experience & Pet Projects') {
+            <pp-poc></pp-poc>
+          }
+          @if (item === 'Skills') {
+            <div fxLayout="row wrap" fxLayoutAlign="start start">
+              @for (item of skills; track item) {
+                <button class="mc-margin-left-r0-50 mc-margin-bottom-r0-50 border-radius-20" [style.border-bottom-color]="'#303134'" mat-stroked-button >{{item}}</button>
+              }
+            </div>
+          }
+        </div>
+      </div>
     }
   </div>
 </div>
 <router-outlet></router-outlet>
+
+<div class="background-303134 footer color-fefe mc-padding-r1" fxLayout="row" fxLayoutAlign="center center">
+  Made with Angular by &nbsp;<a class="color-fefe" href="https://github.com/vinayenjapuri?tab=repositories" target="_blank">{{'@vinayenjapuri'}}</a>
+</div>
 
 <ng-template #profilePhotoRef>
   <div class="profile-photo"></div>

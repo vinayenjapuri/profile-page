@@ -17,6 +17,7 @@ import {AdditionalDetailsComponent} from "./profile-details/additional-details/a
 import {MatDialog, MatDialogContent, MatDialogModule} from "@angular/material/dialog";
 import {MatIcon, MatIconModule} from "@angular/material/icon";
 import {MatButton} from "@angular/material/button";
+import {POCComponent} from "./profile-details/poc/poc.component";
 
 export interface ContactList {
   name: string,
@@ -46,14 +47,17 @@ export interface ContactList {
     MatDialogContent,
     MatDialogModule,
     MatIconModule,
-    MatButton
+    MatButton,
+    POCComponent
   ],
   templateUrl: './content.component.html',
   styleUrl: './content.component.scss'
 })
 export class ContentComponent {
 
-  contents: string[] = ["Projects"];
+  contents: string[] = ["About", "Work Experience & Pet Projects", "Skills"];
+
+  skills: string[] = ["Angular 2/17", "Bootstrap", "HTML", "SCSS", "SASS/CSS", "NG-Bootstrap", "JSON", "Javascript", "Typescript", "Java", "MongoDB", "Karma", "Jasmine", "Node.js", "Git", "Windows", "Angular Material", "NgRx"]
 
   contactList: ContactList[] = [
     {
@@ -65,17 +69,17 @@ export class ContentComponent {
       name: "Email",
       text: "vinayenjapuri@gmail.com",
       icon: "email"
-    },
-    {
-      name: "Gitlab",
-      text: "GitLab",
-      icon: null
     }
-  ]
+  ];
+
+  hideBlankSpaces: boolean = false;
 
   @ViewChild('profilePhotoRef') profilePhotoRef!: TemplateRef<any>;
 
   constructor(private matDialog: MatDialog) {
+    setTimeout(() => {
+      this.hideBlankSpaces = true;
+    }, 2000);
   }
 
   public openProfile(): void {

@@ -17,4 +17,7 @@ import {MatIcon} from "@angular/material/icon";
 })
 export class HeaderComponent {
 
+  public openGithub(): void {
+    window.open('https://github.com/vinayenjapuri?tab=repositories', '_blank');
+  }
 }

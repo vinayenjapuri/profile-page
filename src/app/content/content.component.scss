@@ -12,21 +12,87 @@
   object-fit: cover;
   margin-top: -2rem !important;
   animation-name: user-anime;
-  animation-duration: 3s;
+  animation-duration: 10s;
 }
 
 @keyframes user-anime {
   0% {
-    top: 100px;
+    top: 50px;
   }
   50% {
-    margin-top: 160px;
+    margin-top: 120px;
   }
   75% {
     top: 270px;
   }
   100% {
     margin-top: 0;
+  }
+}
+
+.quick-card {
+  position: absolute;
+  z-index: 99;
+  top: 20px;
+  background: #1e7ddb !important;
+  animation-name: quick;
+  animation-duration: 5s;
+  text-space: 2px;
+  margin-left: 10px;
+}
+
+@keyframes quick {
+  0% {
+    width: 400px;
+    margin-left: 0;
+  }
+  100% {
+    margin-left: 10px;
+    width: 250px;
+  }
+}
+
+@media screen and (max-width: 580px){
+  .quick-card {
+    width: 160px !important;
+    height: 150px !important;
+    animation-name: quick-c;
+    animation-duration: 5s;
+  }
+  .quick-card-content {
+    animation-name: quick-content-anime;
+    animation-duration: 5s;
+    font-size: 14px !important;
+    .quick-desc {
+      font-size: 12px !important;
+    }
+  }
+  @keyframes quick-content-anime {
+    0% {
+      opacity: 0;
+    }
+    25% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0;
+    }
+    75% {
+      opacity: 0.78;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes quick-c {
+    0% {
+      width: 200px;
+      margin-left: 0;
+    }
+    100% {
+      margin-left: 10px;
+      width: 150px;
+    }
   }
 }
 
@@ -50,11 +116,6 @@
   .profile-dialog .mat-mdc-dialog-surface {
     border-radius: 20px !important;
   }
-  .mat-mdc-card {
-    box-shadow: none !important;
-    border: 0.5px #303134 !important;
-    border-style: ridge;
-  }
 
   .icon {
     width: 20px !important;
@@ -66,6 +127,17 @@
 .visibility-frames {
   animation-name: card-details;
   animation-duration: 6s;
+  box-shadow: none !important;
+  border: 0.5px #303134 !important;
+  border-style: ridge;
+}
+.about-content {
+  letter-spacing: 1px;
+  opacity: 0.78;
+}
+
+.subtitle {
+  font-weight: normal;
 }
 
 @keyframes card-details {
@@ -84,4 +156,10 @@
   100% {
     opacity: 1;
   }
+}
+
+.footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 9999;
 }
