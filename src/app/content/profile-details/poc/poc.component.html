@@ -27,22 +27,22 @@
     <span class="font-20"><b>{{currentItem?.name}}</b></span>
     <span class="font-12" fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="5">
       <span>
-        <b>Description</b>:
+        <b class="font-12">Description</b>:
         {{currentItem?.description}}
       </span>
       <span>
-        <b>Role</b>:
+        <b class="font-12">Role</b>:
         {{currentItem?.role}}
       </span>
       <span>
-        <b>Tools Used</b>:
+        <b class="font-12">Tools Used</b>:
         {{currentItem?.tools}}
       </span>
       <span>
-        <b>Skills</b>
+        <b class="font-12">Skills</b>
         {{currentItem?.skills}}
       </span>
-      <b>Responsibilities</b>
+      <b class="font-12">Responsibilities</b>
       <ul>
         @for (item of currentItem?.responsibilities; track item) {
           <li>{{item}}</li>
