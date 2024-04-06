@@ -12,7 +12,7 @@
   object-fit: cover;
   margin-top: -2rem !important;
   animation-name: user-anime;
-  animation-duration: 10s;
+  animation-duration: 7s;
 }
 
 @keyframes user-anime {
@@ -26,6 +26,7 @@
     top: 270px;
   }
   100% {
+    top: 260px;
     margin-top: 0;
   }
 }
