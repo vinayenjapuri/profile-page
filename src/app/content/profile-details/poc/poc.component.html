@@ -14,8 +14,8 @@
         } @else if (!item?.git && !item?.website) {
           <b class="font-11">Currently Unavailable.</b>
         } @else {
-          <button mat-stroked-button [matTooltip]="'Goto Source Code'">Source</button>
-          <button mat-stroked-button [matTooltip]="'Visit'">Website</button>
+          <button mat-stroked-button (click)="$event.stopPropagation(); openSource(item?.git)" [matTooltip]="'Goto Source Code'">Source</button>
+          <button mat-stroked-button (click)="$event.stopPropagation(); openWebsite(item?.website)" [matTooltip]="'Visit'">Website</button>
         }
       </mat-card-actions>
     </mat-card>

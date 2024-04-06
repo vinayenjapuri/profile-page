@@ -109,4 +109,16 @@ export class POCComponent {
     this.currentItem = item;
     this.matBottomSheet.open(this.pocSheetItemRef);
   }
+
+  openSource(git: string | undefined) {
+    if (git) {
+      window.open(git, '_blank');
+    }
+  }
+
+  openWebsite(website: string | undefined) {
+    if (website) {
+      window.open(website, '_blank');
+    }
+  }
 }
