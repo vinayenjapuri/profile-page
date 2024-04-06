@@ -7,6 +7,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {HeaderComponent} from "./header/header.component";
 import {HttpClientModule} from "@angular/common/http";
+import {ContentComponent} from "./content/content.component";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {HttpClientModule} from "@angular/common/http";
     AppRoutingModule,
     FlexLayoutModule,
     HeaderComponent,
-    HttpClientModule
+    HttpClientModule,
+    ContentComponent
   ],
   providers: [
     provideAnimationsAsync()
