@@ -1,5 +1,13 @@
-.poc-card {
+.poc-web {
   width: 340px;
+  max-width: 340px;
+}
+
+.poc-article {
+  width: 340px;
+  max-width: 340px;
+}
+.poc-card {
   min-height: 280px;
   max-height: 380px;
   cursor: pointer;
@@ -12,5 +20,12 @@
     max-height: 150px;
     min-height: 150px;
     font-weight: 300;
+  }
+}
+
+@media screen and (max-width: 396px) {
+  .poc-article {
+    width: 265px;
+    max-width: 265px;
   }
 }

@@ -5,13 +5,14 @@ import {FlexLayoutModule} from "@angular/flex-layout";
 import {MatTooltip, MatTooltipModule} from "@angular/material/tooltip";
 import {MatBottomSheet, MatBottomSheetModule} from "@angular/material/bottom-sheet";
 import {MatDivider, MatDividerModule} from "@angular/material/divider";
+import {CommonModule} from "@angular/common";
 
 export interface Apps {
   name: string,
-  description: string,
+  description?: string,
   git?: string;
   website?: string;
-  status: "Progress" | "pending" | "Complete",
+  status?: "Progress" | "Article" | "Complete",
   image?: string;
   tools?: string;
   skills?: string;
@@ -23,6 +24,7 @@ export interface Apps {
   selector: 'pp-poc',
   standalone: true,
   imports: [
+    CommonModule,
     MatCardModule,
     MatButton,
     FlexLayoutModule,
@@ -62,13 +64,11 @@ export class POCComponent {
       type: 'Organisation',
       responsibilities: ['As a Developer to the Mirai Team member.', 'Aligning with UX Designers/Java Developers, to make frontend application more intuitive and interactive', 'Involved in any changes throughout the developing in-phase application as per Client requirements.', 'Writing test cases along development with 100% coverage in Components, Services, Pipes, and Models.', 'Reusable components, maintaining compatibility with Angular latest versions in library.', 'Integrating the Web services in the Angular project, Developing Responsive in-app search engine designs for application using Angular materials, RXJS, and Reactive forms.', 'Development of a given task throughout the application for better workflow and intuitive client-server communication.', 'Beside coding and testing, performing the change update, and code review.', 'Tested the application on Web browser in different compatibilities', 'Working with Angular user-defined libraries, testing and debugging.', 'Debugging local backend for http error handling and resolving at frontend.']
     },
-
     {
       name: 'Money Chunks',
       description: 'It\'s a firebase hosted application with Auto Google Authentication. This is mainly for users who wants to earn some chunks with Google Adsense, Faucets, and much more for a specific Geographic Location.',
       git: 'https://gitlab.com/vinayenjapuri/money-chunks',
       status: "Progress",
-      image: 'assets/logo.jpg',
       //website: 'https://money-chunks.web.app/home',
       role: 'Developer',
       tools: 'IntelliJ Idea, Visual Studio Code, Firebase CLI',
@@ -79,7 +79,6 @@ export class POCComponent {
       name: 'REST Countries',
       description: 'REST Countries, it is an application that shows the countries just as the products in e-commerce. And when one country is selected, you would see its details in the other page. It is build using SPAs. In the second page, list of neighborhood countries would be displayed and then link forwarded to its detail as a button. Not only that, it has filters such as select options with regions including all by default. And Autocomplete filter input of the data collected through API. Profound interests in reducing change detection strategy, the application works smoothly with no problem.',
       status: "Complete",
-      image: 'assets/logo.jpg',
       role: 'Developer',
       tools: 'IntelliJ Idea, Visual Studio Code.',
       skills: 'Angular 14, HTML5, CSS3, RXJS, HTTP, Typescript, NgRxStore, and HTTP Requests/JSON.',
@@ -89,7 +88,6 @@ export class POCComponent {
       name: 'Fair Del',
       description: 'FairDel, it is an packages delivery application that has driven to deliver the customers’ household packages such as greetings, cakes, and gifts throughout the based region at fair prices in accordance to the current fuel market. It gives customer to select the sender that includes details such as bike company and its mileage algorithm. Such that, the price varies with the distance covered.',
       status: "Complete",
-      image: 'assets/logo.jpg',
       role: 'Team Lead and Developer',
       tools: 'IntelliJ Idea, Visual Studio Code.',
       skills: 'Angular, HTML5, CSS3, RXJS, HTTP, Typescript, NgRxStore, and JSON.',
@@ -99,15 +97,23 @@ export class POCComponent {
       name: 'EasyEarn',
       description: 'EasyEarn, it is an application for users to earn money as a payout generated weekly to their PayPal accounts using different components such as rolls, GoogleAds, and video completion tasks.',
       status: "Complete",
-      image: 'assets/logo.jpg',
       role: 'Team Lead and Developer',
       tools: 'IntelliJ Idea, Visual Studio Code.',
       skills: 'Angular, HTML5, CSS3, RXJS, HTTP, Typescript, and JSON.',
       responsibilities: ['Leading the team and developing algorithms.', 'Involves in requirements discussion, design, and in all other phase.', 'Development of various components of the application. Have worked on coding of almost all the components of the application.', 'Integrating the Web services in the Angular project, Developing Responsive web designs for application using Angular materials and Reactive forms.']
+    },
+    {
+      name: 'Dynamic Classes using @Mixin and SASS',
+      image: 'assets/scss-css.png',
+      status: "Article",
+      website: 'https://medium.com/@vinayenjapuri/dynamic-classes-using-mixin-and-sass-23ba99d349d1'
     }
   ]
 
   openItem(item: Apps) {
+    if (item?.status === "Article") {
+      return;
+    }
     this.currentItem = item;
     this.matBottomSheet.open(this.pocSheetItemRef);
   }
