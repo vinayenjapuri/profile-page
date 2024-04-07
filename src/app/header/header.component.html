@@ -3,15 +3,15 @@
   <span fxLayout="row" fxLayoutAlign="start center">
     <span id="desktop">
       @for (item of menuContents; track item; let i = $index) {
-        <button mat-button (click)="onClick(item, i)" class="color-1e7ddb highlight">{{item}}</button>
+        <button mat-button (click)="onClick(item, i)" class="color-80ADD5 highlight">{{item}}</button>
       }
     </span>
-    <button mat-icon-button (click)="openGithub()">
-      <mat-icon svgIcon="github" class="color-1e7ddb"></mat-icon>
+    <button mat-icon-button class="github-button" (click)="openGithub()">
+      <mat-icon svgIcon="github" class="color-80ADD5 github-icon"></mat-icon>
     </button>
     <span id="mobile">
       <button mat-icon-button [matMenuTriggerFor]="menu">
-      <mat-icon class="color-1e7ddb">menu</mat-icon>
+      <mat-icon class="color-80ADD5">menu</mat-icon>
     </button>
     </span>
   </span>

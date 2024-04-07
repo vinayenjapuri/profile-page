@@ -1,8 +1,8 @@
 <div class="w-100" [style.height.px]="210">
-  <img class="w-100" src="assets/logo.jpeg" height="300" alt="Resume"/>
+  <img class="w-100" src="assets/cover.png" height="300" alt="Resume"/>
 </div>
 <div>
-  <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="10px" class="background-1e7ddb quick-card color-fefe mc-padding-r1 border-radius-20" style="width: 250px; height: 130px">
+  <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="10px" class="background-3F3565 quick-card color-fefe mc-padding-r1 border-radius-20" style="width: 250px; height: 130px">
     @if (!hideBlankSpaces) {
       <div style="min-width: 120px; background: black"></div>
     }
@@ -17,7 +17,7 @@
     <img [src]="userImg" (click)="openProfile()" mat-card-avatar class="user-image" />
   </div>
   <div class="mc-margin-top-r3-75 mc-padding-left-r4-75">
-    <div class="mc-padding-left-r3-75 font-18 color-fefe mc-margin-bottom-r1-25">Merugu Vinay Kumar</div>
+    <div class="mc-padding-left-r3-75 font-18 color-fefefe mc-margin-bottom-r1-25" style="font-weight: 550">Merugu Vinay Kumar</div>
     <div class="mc-padding-left-r3-75" fxLayout="row wrap" fxLayout.xs="column wrap" fxLayoutAlign="start start" fxLayoutGap="10px">
       @for (item of contactList; track item) {
         <button mat-button class="background-f1f1f1 color-1e1e1e contact-card" fxLayout="row" fxLayoutAlign="start center">
@@ -55,7 +55,7 @@
 </div>
 <router-outlet></router-outlet>
 
-<div class="background-303134 footer color-fefe mc-padding-r1" fxLayout="row" fxLayoutAlign="center center">
+<div class="background-3F3565 footer color-fefe mc-padding-r1" fxLayout="row" fxLayoutAlign="center center">
   Made with Angular by &nbsp;<a class="color-fefe" href="https://github.com/vinayenjapuri?tab=repositories" target="_blank">{{'@vinayenjapuri'}}</a>
 </div>
 
