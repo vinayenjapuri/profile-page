@@ -1,4 +1,4 @@
-import {Component, TemplateRef, ViewChild} from '@angular/core';
+import {Component, OnDestroy, TemplateRef, ViewChild} from '@angular/core';
 import {CommonModule, NgOptimizedImage} from "@angular/common";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {RouterOutlet} from "@angular/router";
@@ -20,6 +20,7 @@ import {MatButton} from "@angular/material/button";
 import {POCComponent} from "./profile-details/poc/poc.component";
 import {ContentService} from "../shared/content.service";
 import {MatDividerModule} from "@angular/material/divider";
+import {Subscription} from "rxjs";
 
 export interface ContactList {
   name: string,
@@ -56,7 +57,12 @@ export interface ContactList {
   templateUrl: './content.component.html',
   styleUrl: './content.component.scss'
 })
-export class ContentComponent {
+export class ContentComponent implements OnDestroy {
+
+  userImg = "assets/user-profile.jpeg";
+
+  private readonly hideBlankTimeout: any;
+  private readonly userImgInterval: any;
 
   contents: string[] = ["About", "Skills", "Projects & Articles"];
 
@@ -78,11 +84,15 @@ export class ContentComponent {
   hideBlankSpaces: boolean = false;
 
   @ViewChild('profilePhotoRef') profilePhotoRef!: TemplateRef<any>;
+  private contentSubscription$?: Subscription;
 
   constructor(private matDialog: MatDialog, private contentService: ContentService) {
-    setTimeout(() => {
+    this.hideBlankTimeout = setTimeout(() => {
       this.hideBlankSpaces = true;
     }, 1000);
+    this.userImgInterval = setInterval(() => {
+      this.userImg = this.userImg === "assets/user-profile.jpeg"?  "assets/user-profile-2.jpeg": "assets/user-profile.jpeg";
+    }, 2000);
     this.subscribeToContentView();
   }
 
@@ -96,8 +106,14 @@ export class ContentComponent {
   }
 
   subscribeToContentView(): void {
-    this.contentService.content.subscribe((view) => {
+    this.contentSubscription$ = this.contentService.content.subscribe((view) => {
       document.getElementById(view)?.scrollIntoView({behavior: "smooth"});
     });
+  }
+
+  ngOnDestroy(): void {
+    clearTimeout(this.hideBlankTimeout);
+    clearInterval(this.userImgInterval);
+    this.contentSubscription$?.unsubscribe();
   }
 }
