@@ -20,7 +20,7 @@ export class AppComponent {
     {
       name: "GitHub",
       iconName: "github",
-      url: "/assets/svgs/github-mark.svg"
+      url: "assets/github-mark.svg"
     }
   ]
 
