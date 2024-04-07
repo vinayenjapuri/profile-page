@@ -3,7 +3,7 @@
     <mat-card (click)="openItem(item)" class="poc-card mc-padding-r1 border-radius-20 mc-margin-bottom-r0-75 mc-margin-right-r0-75">
       <mat-card-title fxLayout="row" class="mc-margin-bottom-r0-50" fxLayoutAlign="space-between center">
         <span class="font-16">{{item.name}}</span>
-        <button class="font-9 border-radius-20" mat-stroked-button [class]="item.status==='Complete'? 'background-1e7ddb color-1e1e1e': 'background-303134 color-fefe'"> {{item.status}}</button>
+        <button class="font-9 border-radius-20" mat-stroked-button [class]="item.status==='Complete'? 'color-1e1e1e': 'background-303134 color-fefe'"> {{item.status}}</button>
       </mat-card-title>
       <mat-card-content class="poc-content">
         <p>{{item.description}}</p>
@@ -15,7 +15,7 @@
           <b class="font-11">Currently Unavailable.</b>
         } @else {
           <button mat-stroked-button (click)="$event.stopPropagation(); openSource(item?.git)" [matTooltip]="'Goto Source Code'">Source</button>
-          <button mat-stroked-button (click)="$event.stopPropagation(); openWebsite(item?.website)" [matTooltip]="'Visit'">Website</button>
+          <button mat-stroked-button (click)="$event.stopPropagation(); openWebsite(item?.website)" [matTooltip]="'Visit'" [disabled]="!item?.website">Website</button>
         }
       </mat-card-actions>
     </mat-card>

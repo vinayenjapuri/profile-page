@@ -1,8 +1,26 @@
-<div class="mc-padding-r1 color-fefe pp-header" fxLayout="row" fxLayoutAlign="start center">
+<div class="mc-padding-r1 color-fefe background-fff pp-header" fxLayout="row" fxLayoutAlign="start center">
   <span class="font-24" fxFlex></span>
-  <span>
-    <button mat-raised-button (click)="openGithub()" class="background-303134 color-fefe">
-      GitHub
+  <span fxLayout="row" fxLayoutAlign="start center">
+    <span id="desktop">
+      @for (item of menuContents; track item; let i = $index) {
+        <button mat-button (click)="onClick(item, i)" class="color-1e7ddb highlight">{{item}}</button>
+      }
+    </span>
+    <button mat-icon-button (click)="openGithub()">
+      <mat-icon svgIcon="github" class="color-1e7ddb"></mat-icon>
     </button>
+    <span id="mobile">
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon class="color-1e7ddb">menu</mat-icon>
+    </button>
+    </span>
   </span>
 </div>
+
+<mat-menu #menu="matMenu">
+  <ng-template matMenuContent>
+    @for(item of menuContents; let i=$index; track item) {
+      <button class="color-1e1e1e font-12 highlight" mat-menu-item (click)="onClick(item, i)">{{item}}</button>
+    }
+  </ng-template>
+</mat-menu>

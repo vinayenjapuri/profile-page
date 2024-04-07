@@ -6,12 +6,12 @@
   border-radius: 50%;
   flex-shrink: 0;
   position: absolute;
-  z-index: 99;
+  z-index: 1599;
   margin-bottom: 16px;
   object-fit: cover;
   margin-top: -2rem !important;
   animation-name: user-anime;
-  animation-duration: 7s;
+  animation-duration: 3s;
 }
 
 @keyframes user-anime {
@@ -32,11 +32,11 @@
 
 .quick-card {
   position: absolute;
-  z-index: 99;
+  z-index: 1299;
   top: 20px;
   background: #1e7ddb !important;
   animation-name: quick;
-  animation-duration: 5s;
+  animation-duration: 3s;
   text-space: 2px;
   margin-left: 10px;
 }
@@ -57,11 +57,11 @@
     width: 160px !important;
     height: 150px !important;
     animation-name: quick-c;
-    animation-duration: 5s;
+    animation-duration: 3s;
   }
   .quick-card-content {
     animation-name: quick-content-anime;
-    animation-duration: 5s;
+    animation-duration: 3s;
     font-size: 14px !important;
     .quick-desc {
       font-size: 12px !important;
@@ -124,8 +124,6 @@
 }
 
 .visibility-frames {
-  animation-name: card-details;
-  animation-duration: 6s;
   box-shadow: none !important;
   border: 0.5px #303134 !important;
   border-style: ridge;
@@ -137,24 +135,6 @@
 
 .subtitle {
   font-weight: normal;
-}
-
-@keyframes card-details {
-  0% {
-    opacity: 0;
-  }
-  25% {
-    opacity: 0.55;
-  }
-  50% {
-    opacity: 0.75;
-  }
-  75% {
-    opacity: 0.95;
-  }
-  100% {
-    opacity: 1;
-  }
 }
 
 .footer {

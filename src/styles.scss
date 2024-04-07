@@ -5,3 +5,12 @@ body { margin: 0;
   font-family: Camphor, Open Sans, Segoe UI, sans-serif !important;
   letter-spacing: 0.5px;
 }
+
+.highlight:hover {
+  color: #1e7ddb !important;
+}
+
+.item-active {
+  background: #303134 !important;
+  color: #fefe !important;
+}

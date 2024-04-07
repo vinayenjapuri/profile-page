@@ -18,6 +18,8 @@ import {MatDialog, MatDialogContent, MatDialogModule} from "@angular/material/di
 import {MatIcon, MatIconModule} from "@angular/material/icon";
 import {MatButton} from "@angular/material/button";
 import {POCComponent} from "./profile-details/poc/poc.component";
+import {ContentService} from "../shared/content.service";
+import {MatDividerModule} from "@angular/material/divider";
 
 export interface ContactList {
   name: string,
@@ -48,16 +50,17 @@ export interface ContactList {
     MatDialogModule,
     MatIconModule,
     MatButton,
-    POCComponent
+    POCComponent,
+    MatDividerModule
   ],
   templateUrl: './content.component.html',
   styleUrl: './content.component.scss'
 })
 export class ContentComponent {
 
-  contents: string[] = ["About", "Work Experience & Pet Projects", "Skills"];
+  contents: string[] = ["About", "Skills", "Projects & Articles"];
 
-  skills: string[] = ["Angular 2/17", "Bootstrap", "HTML", "SCSS", "SASS/CSS", "NG-Bootstrap", "JSON", "Javascript", "Typescript", "Java", "MongoDB", "Karma", "Jasmine", "Node.js", "Git", "Windows", "Angular Material", "NgRx"]
+  skills: string[] = ["Angular 2/17", "Bootstrap/NG-Bootstrap", "RxJs", "HTML", "SASS/SCSS/CSS", "JSON", "Javascript", "Typescript", "MongoDB", "Node.js", "NgRx"]
 
   contactList: ContactList[] = [
     {
@@ -76,10 +79,11 @@ export class ContentComponent {
 
   @ViewChild('profilePhotoRef') profilePhotoRef!: TemplateRef<any>;
 
-  constructor(private matDialog: MatDialog) {
+  constructor(private matDialog: MatDialog, private contentService: ContentService) {
     setTimeout(() => {
       this.hideBlankSpaces = true;
-    }, 2000);
+    }, 1000);
+    this.subscribeToContentView();
   }
 
   public openProfile(): void {
@@ -88,6 +92,12 @@ export class ContentComponent {
       height: "500px",
       width: "400px",
       panelClass: "profile-dialog"
+    });
+  }
+
+  subscribeToContentView(): void {
+    this.contentService.content.subscribe((view) => {
+      document.getElementById(view)?.scrollIntoView({behavior: "smooth"});
     });
   }
 }

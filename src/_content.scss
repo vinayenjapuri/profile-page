@@ -85,7 +85,7 @@ $max: 75;
   }
 }
 
-@each $color in "fefe", "303134", "f0f4f9", "fefefe", "1e7fddb", "1e1e", "1e1e1e", "000", "fff", "626262", "f1f1f1", "111111" {
+@each $color in "fefe", "fff", "303134", "f0f4f9", "fefefe", "1e7ddb", "1e1e", "1e1e1e", "000", "fff", "626262", "f1f1f1", "111111" {
   .color-#{$color} {
     @include color($color);
   }

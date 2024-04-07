@@ -1,6 +1,7 @@
 .poc-card {
-  width: 270px;
-  max-height: 220px;
+  width: 340px;
+  min-height: 280px;
+  max-height: 380px;
   cursor: pointer;
   &:hover {
     transform: scale(1.05);
@@ -8,7 +9,8 @@
   }
   .poc-content {
     overflow: auto;
-    max-height: 100px;
+    max-height: 150px;
+    min-height: 150px;
     font-weight: 300;
   }
 }

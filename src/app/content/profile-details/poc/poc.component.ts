@@ -4,6 +4,7 @@ import {MatButton} from "@angular/material/button";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {MatTooltip, MatTooltipModule} from "@angular/material/tooltip";
 import {MatBottomSheet, MatBottomSheetModule} from "@angular/material/bottom-sheet";
+import {MatDivider, MatDividerModule} from "@angular/material/divider";
 
 export interface Apps {
   name: string,
@@ -26,7 +27,8 @@ export interface Apps {
     MatButton,
     FlexLayoutModule,
     MatTooltipModule,
-    MatBottomSheetModule
+    MatBottomSheetModule,
+    MatDividerModule
   ],
   templateUrl: './poc.component.html',
   styleUrl: './poc.component.scss'
@@ -67,7 +69,7 @@ export class POCComponent {
       git: 'https://gitlab.com/vinayenjapuri/money-chunks',
       status: "Progress",
       image: 'assets/logo.jpg',
-      website: 'https://money-chunks.web.app/home',
+      //website: 'https://money-chunks.web.app/home',
       role: 'Developer',
       tools: 'IntelliJ Idea, Visual Studio Code, Firebase CLI',
       skills: 'Angular 17, Angular Material (latest), Typescript, Git, NGRX Store, HTML, RxJS, CSS, Karma, Jasmine, Firebase, Utilities, and JSON/HTTP Requests',

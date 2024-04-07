@@ -1,6 +1,24 @@
 .pp-header {
-  position: fixed;
+  position: absolute;
+  top: 0;
   width: 100%;
-  z-index: 999;
-  background: transparent !important;
+  z-index: 500;
+}
+
+@media screen and (max-width: 712px) {
+  #desktop {
+    display: none !important;
+  }
+  #mobile {
+    display: flex !important;
+  }
+}
+
+@media screen and (min-width: 712px) {
+  #desktop {
+    display: flex !important;
+  }
+  #mobile {
+    display: none !important;
+  }
 }
