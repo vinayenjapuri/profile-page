@@ -14,3 +14,7 @@ body { margin: 0;
   background: #303134 !important;
   color: #fefe !important;
 }
+
+.cdk-overlay-container {
+  z-index: 9999;
+}
