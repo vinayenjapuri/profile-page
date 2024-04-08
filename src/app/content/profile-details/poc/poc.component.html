@@ -1,7 +1,7 @@
 <div fxLayout="row wrap" fxLayoutAlign="center center">
   @for (item of pocs; track item) {
     <mat-card (click)="openItem(item)" [ngClass]="{'poc-web': item?.status != 'Article', 'poc-article': item?.status == 'Article'}" class="poc-card mc-padding-r1 border-radius-20 mc-margin-bottom-r0-75 mc-margin-right-r0-75">
-      <mat-card-title fxLayout="row" class="mc-margin-bottom-r0-50" fxLayoutAlign="space-between center">
+      <mat-card-title fxLayout="row" class="mc-margin-bottom-r0-75" fxLayoutAlign="space-between center">
         <span class="font-16">{{item.name}}</span>
         <button class="font-9 border-radius-20" mat-stroked-button [class]="item.status==='Complete'? 'color-1e1e1e': 'background-303134 color-fefe'"> {{item.status}}</button>
       </mat-card-title>

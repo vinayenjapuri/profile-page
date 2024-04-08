@@ -31,10 +31,10 @@
   </div>
   <div class="mc-margin-top-r2-75 mc-padding-left-r0-25 mc-padding-right-r0-25" fxLayout="column wrap" fxLayoutAlign="start start" fxLayoutGap="10px">
     @for (item of contents; track item;let i = $index) {
-      <div fxLayoutAlign="center center" [id]="'content-'+i" fxLayout="column" class="mc-padding-r1 pp-card w-100 visibility-frames">
+      <div fxLayoutAlign="center center" [id]="'content-'+i" fxLayout="column" class="pp-card w-100 visibility-frames">
         <div class="font-24 mc-margin-bottom-r0-50">{{ item }}</div>
-        <mat-divider class="w-80 mc-margin-bottom-r0-50"></mat-divider>
-        <div class="subtitle w-80">
+        <mat-divider class="w-95 mc-margin-bottom-r0-50"></mat-divider>
+        <div class="subtitle w-95">
           @if (item == 'About') {
             <span class="font-16 about-content">I would like to introduce myself as a <b>UI Developer</b> and a web enthusiast, with <b>3.7</b> years of experience.<br>I pleasure to collaborate with the people who share similar interests, knowledge sharing, and provides analytical reasoning to improve skills. <b>UI Architecture</b>, <b>NgRx State Management</b>, <b>Do's and Don't in Web Development</b>, <b>Computer Networks</b>, <b>Space and Time</b> are my favorite topics. Without further ado, here are the <a>Skills</a></span>
           }
