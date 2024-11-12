@@ -4,7 +4,8 @@ import {MatButton, MatIconButton} from "@angular/material/button";
 import {MatIcon} from "@angular/material/icon";
 import {CommonModule} from "@angular/common";
 import {ContentService} from "../shared/content.service";
-import {MatMenuModule, MatMenuTrigger} from "@angular/material/menu";
+import {MatMenuModule} from "@angular/material/menu";
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'pp-header',
@@ -15,7 +16,8 @@ import {MatMenuModule, MatMenuTrigger} from "@angular/material/menu";
     MatButton,
     MatIconButton,
     MatIcon,
-    MatMenuModule
+    MatMenuModule,
+    MatTooltipModule
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
@@ -32,8 +34,12 @@ export class HeaderComponent {
     window.open('https://github.com/vinayenjapuri?tab=repositories', '_blank');
   }
 
-  onClick(item: string, index: number) {
+  onClick(item: string, index: number): void {
     this.activeContent=item;
     this.contentService.content.next('content-'+index);
+  }
+
+  onClickResume(): void {
+
   }
 }

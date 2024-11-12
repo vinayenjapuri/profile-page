@@ -2,11 +2,12 @@
   <span class="font-24" fxFlex></span>
   <span fxLayout="row" fxLayoutAlign="start center">
     <span id="desktop">
+      <button mat-stroked-button color="primary" class="mc-margin-right-r0-75" matTooltip="Work In Progress" >Download Resume</button>
       @for (item of menuContents; track item; let i = $index) {
         <button mat-button (click)="onClick(item, i)" class="color-80ADD5 highlight">{{item}}</button>
       }
     </span>
-    <button mat-icon-button class="github-button" (click)="openGithub()">
+    <button mat-icon-button class="github-button" matTooltip="Github" (click)="openGithub()">
       <mat-icon svgIcon="github" class="color-80ADD5 github-icon"></mat-icon>
     </button>
     <span id="mobile">
@@ -19,8 +20,12 @@
 
 <mat-menu #menu="matMenu">
   <ng-template matMenuContent>
-    @for(item of menuContents; let i=$index; track item) {
+    @for(item of menuContents; let i=$index; track item;) {
       <button class="color-1e1e1e font-12 highlight" mat-menu-item (click)="onClick(item, i)">{{item}}</button>
+      @if (menuContents.length -1  === i) {
+      <button class="color-1e1e1e font-12 highlight" mat-menu-item (click)="onClickResume()">Resume</button>
+        
+      }
     }
   </ng-template>
 </mat-menu>

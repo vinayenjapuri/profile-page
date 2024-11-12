@@ -29,7 +29,7 @@ export class AppComponent {
   }
 
   private insertIconsToMatRegistry() {
-    forEach(this.icons, (icon) => {
+    forEach(this.icons, (icon: Icons) => {
       this.matIconRegistry.addSvgIcon(icon.iconName, this.domSanitizer.bypassSecurityTrustResourceUrl(icon.url));
     });
   }

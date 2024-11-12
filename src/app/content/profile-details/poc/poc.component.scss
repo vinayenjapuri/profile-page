@@ -1,31 +1,25 @@
-.poc-web {
-  width: 340px;
-  max-width: 340px;
-}
 
-.poc-article {
-  width: 340px;
-  max-width: 340px;
-}
 .poc-card {
-  min-height: 280px;
-  max-height: 380px;
+  height: 280px;
   cursor: pointer;
-  &:hover {
-    transform: scale(1.05);
-    z-index: 999;
-  }
   .poc-content {
     overflow: auto;
     max-height: 150px;
     min-height: 150px;
     font-weight: 300;
   }
+
+  .poc-card-title {
+    width: max-content;
+  }
 }
 
-@media screen and (max-width: 396px) {
-  .poc-article {
-    width: 265px;
-    max-width: 265px;
+.poc-article, .poc-web {
+  flex: 0 0 32%;
+}
+
+@media screen and (max-width: 962px) {
+  .poc-article, .poc-web {
+    flex: 1 1 45%;
   }
 }

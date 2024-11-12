@@ -66,7 +66,7 @@ export class ContentComponent implements OnDestroy {
 
   contents: string[] = ["About", "Skills", "Projects & Articles"];
 
-  skills: string[] = ["Angular 2/17", "Bootstrap/NG-Bootstrap", "RxJs", "HTML", "SASS/SCSS/CSS", "JSON", "Javascript", "Typescript", "MongoDB", "Node.js", "NgRx"]
+  skills: string[] = ["Angular 2/17", "ReactJS", "ANTD", "Angular Material", "Ag-Grid", "Bootstrap/NG-Bootstrap", "RxJs", "HTML", "SASS/SCSS/CSS", "JSON", "Javascript", "Typescript", "MongoDB", "Node.js", "NgRx"]
 
   contactList: ContactList[] = [
     {

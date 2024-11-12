@@ -1,10 +1,10 @@
 import {Component, TemplateRef, ViewChild} from '@angular/core';
-import {MatCard, MatCardActions, MatCardModule, MatCardTitle} from "@angular/material/card";
+import { MatCardModule } from "@angular/material/card";
 import {MatButton} from "@angular/material/button";
 import {FlexLayoutModule} from "@angular/flex-layout";
-import {MatTooltip, MatTooltipModule} from "@angular/material/tooltip";
+import { MatTooltipModule} from "@angular/material/tooltip";
 import {MatBottomSheet, MatBottomSheetModule} from "@angular/material/bottom-sheet";
-import {MatDivider, MatDividerModule} from "@angular/material/divider";
+import { MatDividerModule} from "@angular/material/divider";
 import {CommonModule} from "@angular/common";
 
 export interface Apps {
@@ -45,12 +45,21 @@ export class POCComponent {
   }
   pocs: Apps[] = [
     {
+      name: 'Mobility Business',
+      description: 'Mobility Business a.k.a MBIZZ is a CRM tool and available for internal use of Admin, Authorized Resellers to CRUD Operations for Agreements, Accounts, and Contacts with legacy database. This involves purchases, discount parity, and much more',
+      role: 'Technical Specialist',
+      skills: 'React 18, ANTD, AG-Grid, Git, Typescript, Eslint, SCSS, HTML, Axios, Jest, etc.',
+      tools: 'Visual Studio Code, IntelliJ Idea, Github, Postman, iTracker',
+      status: 'Progress',
+      responsibilities: ['As a Technical Specialisy in MBIZ Product Team Member.', 'Involved in end-to-end development course of this application from scratch.', 'Involved in reshapping the entire UI design structure, such as, upto folder level, configuring typescript, eslint, and jest.', 'Developed intuitive reusable components with zero breakage aligning with the UX Designer.', 'Involved in technical discussions on how we improve the codebase setting standards.', 'Involved in code-reviews, with actively development.']
+    },
+    {
       name: 'Outplay',
       description: 'OUTPLAY is a CRM tool application that elevates multiple business solutions who seeks for HR & Recruiting, Sales Management, with the prospects and sequences, wherein, chat, emails, sms and dialer multichannel outreach. Apart from this, that also includes several integrations with other CRMs, one such examples are Salesforce and Zoho.',
       role: 'Software Developer',
       skills: 'Angular 9/16, Angular Material, Typescript, Git, HTML, RxJS, CSS, Karma, Jasmine, ng-bootstrap, bootstrap, Utilities, and JSON/HTTP Requests.',
       tools: 'IntelliJ Idea, GITHUB, POSTMAN, Visual Studio Code, Jira Board',
-      status: 'Progress',
+      status: 'Complete',
       type: 'Organisation',
       responsibilities: ['As an Angular Developer to the Outplay Product Team member.', 'Involved in any changes throughout the developing in-phase application as per Product requirements', 'Aligning with UX Designer, Product Manager, and specialists to create responsive and appealing web application.', 'Involved in implementing the change throughout the application, such as, Angular upgrade, Package updates for peer deps.', 'Responsible for cross-verifying done changes ensure not to disrupt the flow of existing use case.', 'Revamping the components to allow creating reusable components that help consistency throughout the application.', 'Involved in planning and execution of different roadmaps for the application growth and stability and to prevent security vulnerabilities.', 'Responsible for initiation of making the application a better product with code readability.', 'Debugging local backend for http error handling and resolving at frontend.', 'Integrating the Web services in the Angular project, Developing Responsive in-app search engine designs for application using Angular materials, RXJS, and Reactive forms.']
     },
@@ -60,7 +69,7 @@ export class POCComponent {
       role: 'Angular Developer',
       skills: 'Angular 9/15, Angular Material (latest), Typescript, Git, NGRX Store, HTML, RxJS, CSS, Karma, Jasmine, yFiles, Utilities, and JSON/HTTP Requests.',
       tools: 'IntelliJ Idea, GITHUB, POSTMAN, Visual Studio Code, Jira Board',
-      status: 'Progress',
+      status: 'Complete',
       type: 'Organisation',
       responsibilities: ['As a Developer to the Mirai Team member.', 'Aligning with UX Designers/Java Developers, to make frontend application more intuitive and interactive', 'Involved in any changes throughout the developing in-phase application as per Client requirements.', 'Writing test cases along development with 100% coverage in Components, Services, Pipes, and Models.', 'Reusable components, maintaining compatibility with Angular latest versions in library.', 'Integrating the Web services in the Angular project, Developing Responsive in-app search engine designs for application using Angular materials, RXJS, and Reactive forms.', 'Development of a given task throughout the application for better workflow and intuitive client-server communication.', 'Beside coding and testing, performing the change update, and code review.', 'Tested the application on Web browser in different compatibilities', 'Working with Angular user-defined libraries, testing and debugging.', 'Debugging local backend for http error handling and resolving at frontend.']
     },
