@@ -40,6 +40,6 @@ export class HeaderComponent {
   }
 
   onClickResume(): void {
-
+    console.log('In Progress');
   }
 }
