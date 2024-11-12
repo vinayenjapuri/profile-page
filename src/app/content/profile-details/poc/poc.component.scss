@@ -1,6 +1,7 @@
 
 .poc-card {
-  height: 280px;
+  width: auto;
+  height: auto;
   cursor: pointer;
   .poc-content {
     overflow: auto;
@@ -10,7 +11,7 @@
   }
 
   .poc-card-title {
-    width: max-content;
+    width: auto;
   }
 }
 
@@ -18,8 +19,14 @@
   flex: 0 0 32%;
 }
 
-@media screen and (max-width: 962px) {
+@media screen and (min-width: 592px) and (max-width: 962px) {
   .poc-article, .poc-web {
     flex: 1 1 45%;
+  }
+}
+
+@media screen and (max-width: 592px) {
+  .poc-article, .poc-web {
+    flex: 1 1 100%;
   }
 }
